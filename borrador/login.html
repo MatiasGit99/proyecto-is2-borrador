@@ -1,0 +1,287 @@
+{% load socialaccount %}
+{% providers_media_js %}
+{% load i18n %}
+{% block login_block %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LOGIN</title>
+	<style type="text/css">
+
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Roboto', sans-serif;
+
+		}
+
+		body{
+
+			overflow: hidden;
+
+		}
+
+		section{
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background: linear-gradient(to bottom,white,gray);
+
+		}
+
+		section .color{
+
+            position: absolute;
+            filter: blur(150px);
+
+        }
+
+        section .color:nth-child(1){
+
+            top: -300px;
+            width: 900px;
+            height: 900px;
+            background: blue;
+
+        }
+
+        section .color:nth-child(2){
+
+            bottom: -150px;
+            left: 100px;
+            width: 400px;
+            height: 400px;
+            background: purple;
+
+        }
+
+        section .color:nth-child(3){
+
+            bottom: 150px;
+            right: 100px;
+            width: 300px;
+            height: 300px;
+            background: yellow;
+
+        }
+
+        .box{
+
+            position: relative;
+
+        }
+
+        .contenedor{
+
+            position: relative;
+            width: 500px;
+            min-height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-right: 1px solid rgba(255, 255, 255, 0);
+            border-bottom: 1px solid rgba(255, 255, 255, 0);
+
+        }
+
+        .formulario{
+
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+
+        }
+
+        .formulario h2{
+
+            position: relative;
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+
+        }
+
+        .formulario .input{
+
+            width: 100%;
+            margin-top: 20px;
+
+        }
+
+        .formulario .input input{
+
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .formulario .input input::placeholder{
+
+            color: white;
+
+        }
+
+        .formulario .input input[type="submit"]{
+
+            background: white;
+            color: gray;
+            max-width: 100px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: 600;
+            width: 33.33%;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+
+        }
+
+        .olvidar{
+
+            margin-top: 5px;
+            color: white;
+
+        }
+
+        .box .fondo{
+
+            position: absolute;
+            backdrop-filter: blur(1px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: animate 10s linear infinite;
+            animation-delay: calc(-1s * var(--i));
+
+        }
+
+        @keyframes animate{
+
+            0%,100%{
+
+                transform: translateY(-40px);
+
+            }
+
+            50%{
+
+                transform: translateY(40px);
+
+            }
+
+        }
+
+        .box .fondo:nth-child(1){
+
+            top: -50px;
+            width: 100px;
+            height: 100px;
+            right: -60px;
+
+        }
+
+        .box .fondo:nth-child(2){
+
+            top: 150px;
+            width: 120px;
+            height: 120px;
+            left: -100px;
+            z-index: 1;
+
+        }
+
+        .box .fondo:nth-child(3){
+
+            bottom: 50px;
+            width: 80px;
+            height: 80px;
+            right: -60px;
+            z-index: 1;
+
+        }
+
+        .box .fondo:nth-child(4){
+
+            bottom: -80px;
+            width: 50px;
+            height: 50px;
+            left: 50px;
+            z-index: 1;
+
+        }
+
+        .box .fondo:nth-child(5){
+
+            top: -80px;
+            width: 60px;
+            height: 60px;
+            left: 140;
+
+        }
+
+
+	</style>
+</head>
+<body>
+    
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="fondo" style="--i:0;"></div>
+            <div class="fondo" style="--i:1;"></div>
+            <div class="fondo" style="--i:2;"></div>
+            <div class="fondo" style="--i:3;"></div>
+            <div class="fondo" style="--i:4;"></div>
+            <div class="fondo" style="--i:5;"></div>
+            <div class="contenedor">
+                <div class="formulario">
+                    <h2>Iniciar Sesión</h2>
+                    <form action="">
+                        <div class="input">
+                            <input type="text" placeholder="Nombre de Usuario">
+                        </div>
+                        <div class="input">
+                            <input type="password" placeholder="Contraseña">
+                        </div>
+                        <div class="input">
+                            <center><input type="submit" value="Acceder" action="menu.html">
+                            <a href="{% provider_login_url "google" %}" >Google Login</a></center>
+                        </div>
+                        <center><p class="olvidar">¿Olvidaste tu contraseña?</p></center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+</html>

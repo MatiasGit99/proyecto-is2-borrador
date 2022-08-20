@@ -61,7 +61,7 @@ ROOT_URLCONF = 'borrador.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"C:\Users\User\Desktop\Django\borrador\borrador"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
