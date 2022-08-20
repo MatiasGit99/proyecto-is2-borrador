@@ -1,0 +1,99 @@
+{% load socialaccount %}
+{% providers_media_js %}
+{% load i18n %}
+{% block login_block %}
+{% if user.is_authenticated %}
+estoy adentro
+{% endif %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Inicio</title>
+</head>
+    <style>
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #1C2833;
+      }
+
+      ul{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      ul li{
+        position: relative;
+        list-style: none;
+      }
+
+      ul li a{
+        position: relative;
+        font-size: 4em;
+        text-decoration: none;
+        line-height: 1em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+      }
+
+      ul li a::before{
+        content: attr(data-text);
+        position: absolute;
+        color: var(--clr);
+        width: 0;
+        overflow: hidden;
+        transition: 1s;
+        border-right: 8px solid  var(--clr);
+        -webkit-text-stroke: 1px  var(--clr);
+      }
+
+      ul li a:hover::before{
+        width: 100%;
+        filter: drop-shadow(0 0 25px var(--clr));
+      }
+
+    </style>
+    </head>
+
+    <body>
+      <ul>
+        <li style="--clr:#B3B6B7">
+          <a href="#" data-text="&nbsp;Inicio">&nbsp;Inicio&nbsp;</a>
+        </li>
+        <li style="--clr:#B3B6B7">
+          <a href="#" data-text="&nbsp;Perfil">&nbsp;Perfil&nbsp;</a>
+        </li>
+        <li style="--clr:#B3B6B7">
+          <a href="#" data-text="&nbsp;Proyecto">&nbsp;Proyecto&nbsp;</a>
+        </li>
+        <li style="--clr:#B3B6B7">
+          <a href="#" data-text="&nbsp;Backlog">&nbsp;Backlog&nbsp;</a>
+        </li>
+        <li style="--clr:#B3B6B7">
+          <a href="#" data-text="&nbsp;Sprint">&nbsp;Sprint&nbsp;</a>
+        </li>
+        <li style="--clr:#B3B6B7">
+          <a href="#" data-text="&nbsp;Kanban">&nbsp;Kanban&nbsp;</a>
+        </li>
+      </ul>
+      {% endblock %}
+    </body>
+
+</html>
