@@ -272,10 +272,12 @@
                         <div class="input">
                             <input type="password" placeholder="Contraseña">
                         </div>
+                        {% if user.is_authenticated %}
                         <div class="input">
-                            <center><input type="submit" value="Acceder" action="menu.html">
-                            <a href="{% provider_login_url "google" %}" >Google Login</a></center>
+                            <center><button type="submit"> <a href="/menu">Acceder</a></button>
                         </div>
+                        {% endif %}
+                        <a href="{% provider_login_url "google" %}" >Google Login</a></center>
                         <center><p class="olvidar">¿Olvidaste tu contraseña?</p></center>
                     </form>
                 </div>
