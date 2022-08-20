@@ -154,3 +154,16 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 
 ACCOUNT_LOGOUT_ON_GET = True
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '59830650569-2ic6dqilej7l21g8sjdi2cgp90vo94nu.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
