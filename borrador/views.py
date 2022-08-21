@@ -10,3 +10,6 @@ def menu(request):
 
     return render(request,"menu.html")
 
+def barra(request):
+
+    return render(request,"barra.html")

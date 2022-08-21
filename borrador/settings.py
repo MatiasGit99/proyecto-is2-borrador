@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'django.contrib.sites',
     'allauth',
-    'allauth.account',
+    'allauth.account.apps.AccountConfig',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'borrador.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"C:\Users\User\Desktop\Django\borrador\borrador\plantillas"],
+        'DIRS': [BASE_DIR / 'borrador/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

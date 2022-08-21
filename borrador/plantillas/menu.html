@@ -1,17 +1,14 @@
+{% extends "barra.html" %}
 {% load socialaccount %}
 {% providers_media_js %}
 {% load i18n %}
 {% block login_block %}
-{% if user.is_authenticated %}
-estoy adentro
-{% endif %}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Inicio</title>
 </head>
     <style>
 
@@ -75,7 +72,7 @@ estoy adentro
     <body>
       <ul>
         <li style="--clr:#B3B6B7">
-          <a href="#" data-text="&nbsp;Inicio">&nbsp;Inicio&nbsp;</a>
+          <a href="/menu" data-text="&nbsp;Inicio">&nbsp;Inicio&nbsp;</a>
         </li>
         <li style="--clr:#B3B6B7">
           <a href="#" data-text="&nbsp;Perfil">&nbsp;Perfil&nbsp;</a>
@@ -93,7 +90,7 @@ estoy adentro
           <a href="#" data-text="&nbsp;Kanban">&nbsp;Kanban&nbsp;</a>
         </li>
       </ul>
-      {% endblock %}
-    </body>
 
+    </body>
+    {% endblock  %}
 </html>
